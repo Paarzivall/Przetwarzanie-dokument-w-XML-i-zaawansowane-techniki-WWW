@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="style.xsl" ?>
+<!DOCTYPE albumy[
+    <!ELEMENT albumy (album+)>
+    <!ELEMENT album (autor, tytul, okladka, cena, ilosc_utworow)>
+    <!ATTLIST album type (metal|rock|rap) #REQUIRED>
+    <!ELEMENT autor (#PCDATA)>
+    <!ELEMENT tytul (#PCDATA)>
+    <!ELEMENT okladka (#PCDATA)>
+    <!ELEMENT cena (#PCDATA)>
+    <!ELEMENT ilosc_utworow (#PCDATA)>
+    <!ATTLIST tytul lang (pl|en) #REQUIRED>
+    <!ATTLIST cena waluta CDATA #FIXED "zl">
+]>
+
+
+
+<albumy>
+    <album type="metal">
+        <autor>Nocny Kochanek</autor>
+        <tytul lang="pl">Hewi Metal</tytul>
+        <okladka>https://ecsmedia.pl/c/hewi-metal-w-iext37660959.jpg</okladka>
+        <cena waluta="zl">32.99</cena>
+        <ilosc_utworow>10</ilosc_utworow>
+    </album>
+    <album type="rock">
+        <autor>Queen</autor>
+        <tytul lang="en">Bohemian Rhapsody</tytul>
+        <okladka>https://ecsmedia.pl/c/bohemian-rhapsody-pl-w-iext53255549.jpg</okladka>
+        <cena waluta="zl">49.99</cena>
+        <ilosc_utworow>22</ilosc_utworow>
+    </album>
+    <album type="rap">
+        <autor>Taconafide</autor>
+        <tytul lang="pl">Soma 0,5mg</tytul>
+        <okladka>https://ecsmedia.pl/c/soma-0-5mg-w-iext52742215.jpg</okladka>
+        <cena waluta="zl">41.99</cena>
+        <ilosc_utworow>15</ilosc_utworow>
+    </album>
+    <album type="metal">
+        <autor>Disturbed</autor>
+        <tytul lang="en">Immortalized (Deluxe Edition)</tytul>
+        <okladka>https://ecsmedia.pl/c/immortalized-deluxe-edition-w-iext35338345.jpg</okladka>
+        <cena waluta="zl">74.99</cena>
+        <ilosc_utworow>16</ilosc_utworow>
+    </album>
+    <album type="rap">
+        <autor>	Kartky</autor>
+        <tytul lang="pl">Black Magiic</tytul>
+        <okladka>https://ecsmedia.pl/c/black-magiic-w-iext53694620.jpg</okladka>
+        <cena waluta="zl">35.99</cena>
+        <ilosc_utworow>12</ilosc_utworow>
+    </album>
+    <album type="rap">
+        <autor>	Lil Peep</autor>
+        <tytul lang="en">Come Over When You're Sober.</tytul>
+        <okladka>https://ecsmedia.pl/c/come-over-when-you-re-sober-volume-2-w-iext53508383.jpg</okladka>
+        <cena waluta="zl">44.99</cena>
+        <ilosc_utworow>11</ilosc_utworow>
+    </album>
+    <album type="rock">
+        <autor>Podsiadło Dawid</autor>
+        <tytul lang="pl">Małomiasteczkowy</tytul>
+        <okladka>https://ecsmedia.pl/c/malomiasteczkowy-w-iext53346209.jpg</okladka>
+        <cena waluta="zl">36.99</cena>
+        <ilosc_utworow>10</ilosc_utworow>
+    </album>
+    <album type="metal">
+        <autor>Sabaton</autor>
+        <tytul lang="en">Heroes On Tour</tytul>
+        <okladka>https://ecsmedia.pl/c/heroes-on-tour-w-iext35461771.jpg</okladka>
+        <cena waluta="zl">22.99</cena>
+        <ilosc_utworow>16</ilosc_utworow>
+    </album>
+    <album type="rock">
+        <autor>Domagała Paweł</autor>
+        <tytul lang="zl">1984</tytul>
+        <okladka>https://ecsmedia.pl/c/1984-w-iext52589041.jpg</okladka>
+        <cena waluta="zl">36.99</cena>
+        <ilosc_utworow>12</ilosc_utworow>
+    </album>
+    <album type="metal">
+        <autor>Metalica</autor>
+        <tytul lang="en">Master of Puppets</tytul>
+        <okladka>https://ecsmedia.pl/c/master-of-puppets-remastered-edition-w-iext51159204.jpg</okladka>
+        <cena waluta="zl">43.99</cena>
+        <ilosc_utworow>14</ilosc_utworow>
+    </album>
+
+
+</albumy>
