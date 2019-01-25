@@ -12,7 +12,7 @@
 
     <input type="text" id="jeden_element" required>
     <button id="show_one_element" onClick="show_one_element()">Pokaż element zformularza</button>
-    <p id="wynik"></p>
+    <div id="wynik"></div>
 
     <script>
         function show_all(){
@@ -21,10 +21,15 @@
             xhttp.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
                    var xmlDoc = this.responseXML;
-                    var album = xmlDoc.getElementsByTagName("album");
-                    var albumLen = album.length;
-                    for(var i = 0; i < albumLen; i++){
-                       document.getElementById("wynik").innerHTML+="<div style='width:30%; margin-bottom:1%; border:1px solid black'>Autor: "+xmlDoc.getElementsByTagName("autor")[i].childNodes[0].nodeValue+"<br>Tytuł: "+xmlDoc.getElementsByTagName("tytul")[i].childNodes[0].nodeValue+"<br>Okładka: "+xmlDoc.getElementsByTagName("okladka")[i].childNodes[0].nodeValue+"<br>Cena: "+xmlDoc.getElementsByTagName("cena")[i].childNodes[0].nodeValue+" "+xmlDoc.getElementsByTagName("cena")[i].getAttribute("waluta")+"<br>Ilość utworów: "+xmlDoc.getElementsByTagName("ilosc_utworow")[i].childNodes[0].nodeValue+"<div>";
+                    var path = "//album";
+                    var nodes = xmlDoc.evaluate(path, xmlDoc, null, XPathResult.ANY_TYPE, null);
+                    while(result = nodes.iterateNext()) {
+                        for(var i = 0; i < result.childNodes.length; i++){
+                            element = result.childNodes[i];
+                            if(element.nodeType == 3) continue;
+                            document.getElementById("wynik").innerHTML +=  element.nodeName + ": " + element.childNodes[0].nodeValue+"<br>";
+                        }
+                        document.getElementById("wynik").innerHTML += "<br><hr><br><br>";
                     }
                 }
             };
@@ -32,105 +37,88 @@
             xhttp.send();
         }
         function show_rock(){
+            document.getElementById("wynik").innerHTML="";
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200){
-                    myFunction(this);
+                if (this.readyState == 4 && this.status == 200) {
+                   var xmlDoc = this.responseXML;
+                    var path = "//album[@type='rock']";
+                    var nodes = xmlDoc.evaluate(path, xmlDoc, null, XPathResult.ANY_TYPE, null);
+                    while(result = nodes.iterateNext()) {
+                        for(var i = 0; i < result.childNodes.length; i++){
+                                element = result.childNodes[i];
+                                if(element.nodeType == 3) continue;
+                                document.getElementById("wynik").innerHTML +=  element.nodeName + ": " + element.childNodes[0].nodeValue+"<br>";
+                        }
+                        document.getElementById("wynik").innerHTML += "<br><hr><br><br>";
+                    }
                 }
             };
             xhttp.open("GET", "albumy_shop.xml", true);
             xhttp.send();
-
-            
-
-            function myFunction(xml) {
-                document.getElementById("wynik").innerHTML="";
-                var xmlDoc = xml.responseXML;
-                var album = xmlDoc.getElementsByTagName("album");
-                var albumLen = album.length;
-                for(var i = 0; i < albumLen; i++){
-                    if(xmlDoc.getElementsByTagName("album")[i].getAttribute("type")=="rock"){
-                        document.getElementById("wynik").innerHTML+="<div style='width:30%; margin-bottom:1%; border:1px solid black'>Autor: "+xmlDoc.getElementsByTagName("autor")[i].childNodes[0].nodeValue+"<br>Tytuł: "+xmlDoc.getElementsByTagName("tytul")[i].childNodes[0].nodeValue+"<br>Okładka: "+xmlDoc.getElementsByTagName("okladka")[i].childNodes[0].nodeValue+"<br>Cena: "+xmlDoc.getElementsByTagName("cena")[i].childNodes[0].nodeValue+" "+xmlDoc.getElementsByTagName("cena")[i].getAttribute("waluta")+"<br>Ilość utworów: "+xmlDoc.getElementsByTagName("ilosc_utworow")[i].childNodes[0].nodeValue+"<div>";
-                    }
-                }
-
-            }
         }
 
         function show_rap(){
+            document.getElementById("wynik").innerHTML="";
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200){
-                    myFunction(this);
+                if (this.readyState == 4 && this.status == 200) {
+                   var xmlDoc = this.responseXML;
+                    var path = "//album[@type='rap']";
+                    var nodes = xmlDoc.evaluate(path, xmlDoc, null, XPathResult.ANY_TYPE, null);
+                    while(result = nodes.iterateNext()) {
+                        for(var i = 0; i < result.childNodes.length; i++){
+                                element = result.childNodes[i];
+                                if(element.nodeType == 3) continue;
+                                document.getElementById("wynik").innerHTML +=  element.nodeName + ": " + element.childNodes[0].nodeValue+"<br>";
+                        }
+                        document.getElementById("wynik").innerHTML += "<br><hr><br><br>";
+                    }
                 }
             };
             xhttp.open("GET", "albumy_shop.xml", true);
             xhttp.send();
-
-            
-
-            function myFunction(xml) {
-                document.getElementById("wynik").innerHTML="";
-                var xmlDoc = xml.responseXML;
-                var album = xmlDoc.getElementsByTagName("album");
-                var albumLen = album.length;
-                for(var i = 0; i < albumLen; i++){
-                    if(xmlDoc.getElementsByTagName("album")[i].getAttribute("type")=="rap"){
-                        document.getElementById("wynik").innerHTML+="<div style='width:30%; margin-bottom:1%; border:1px solid black'>Autor: "+xmlDoc.getElementsByTagName("autor")[i].childNodes[0].nodeValue+"<br>Tytuł: "+xmlDoc.getElementsByTagName("tytul")[i].childNodes[0].nodeValue+"<br>Okładka: "+xmlDoc.getElementsByTagName("okladka")[i].childNodes[0].nodeValue+"<br>Cena: "+xmlDoc.getElementsByTagName("cena")[i].childNodes[0].nodeValue+" "+xmlDoc.getElementsByTagName("cena")[i].getAttribute("waluta")+"<br>Ilość utworów: "+xmlDoc.getElementsByTagName("ilosc_utworow")[i].childNodes[0].nodeValue+"<div>";
-                    }
-                }
-
-            }
         }
 
         function show_metal(){
+            document.getElementById("wynik").innerHTML="";
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200){
-                    myFunction(this);
+                if (this.readyState == 4 && this.status == 200) {
+                   var xmlDoc = this.responseXML;
+                    var path = "//album[@type='metal']";
+                    var nodes = xmlDoc.evaluate(path, xmlDoc, null, XPathResult.ANY_TYPE, null);
+                    while(result = nodes.iterateNext()) {
+                        for(var i = 0; i < result.childNodes.length; i++){
+                                element = result.childNodes[i];
+                                if(element.nodeType == 3) continue;
+                                document.getElementById("wynik").innerHTML +=  element.nodeName + ": " + element.childNodes[0].nodeValue+"<br>";
+                        }
+                        document.getElementById("wynik").innerHTML += "<br><hr><br><br>";
+                    }
                 }
             };
             xhttp.open("GET", "albumy_shop.xml", true);
             xhttp.send();
-
-            
-
-            function myFunction(xml) {
-                document.getElementById("wynik").innerHTML="";
-                var xmlDoc = xml.responseXML;
-                var album = xmlDoc.getElementsByTagName("album");
-                var albumLen = album.length;
-                for(var i = 0; i < albumLen; i++){
-                    if(xmlDoc.getElementsByTagName("album")[i].getAttribute("type")=="metal"){
-                        document.getElementById("wynik").innerHTML+="<div style='width:30%; margin-bottom:1%; border:1px solid black'>Autor: "+xmlDoc.getElementsByTagName("autor")[i].childNodes[0].nodeValue+"<br>Tytuł: "+xmlDoc.getElementsByTagName("tytul")[i].childNodes[0].nodeValue+"<br>Okładka: "+xmlDoc.getElementsByTagName("okladka")[i].childNodes[0].nodeValue+"<br>Cena: "+xmlDoc.getElementsByTagName("cena")[i].childNodes[0].nodeValue+" "+xmlDoc.getElementsByTagName("cena")[i].getAttribute("waluta")+"<br>Ilość utworów: "+xmlDoc.getElementsByTagName("ilosc_utworow")[i].childNodes[0].nodeValue+"<div>";
-                    }
-                }
-
-            }
         }
 
         function show_one_element(){
+            document.getElementById("wynik").innerHTML="";
+            var co = document.getElementById("jeden_element").value;
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200){
-                    myFunction(this);
+                if (this.readyState == 4 && this.status == 200) {
+                   var xmlDoc = this.responseXML;
+                    var path = "//"+co;
+                    var nodes = xmlDoc.evaluate(path, xmlDoc, null, XPathResult.ANY_TYPE, null);
+                    while(result = nodes.iterateNext()) {
+                                document.getElementById("wynik").innerHTML +=  result.nodeName + ": " + result.childNodes[0].nodeValue+"<br>";
+                        document.getElementById("wynik").innerHTML += "<br><hr><br><br>";
+                    }
                 }
             };
             xhttp.open("GET", "albumy_shop.xml", true);
             xhttp.send();
-
-            var co = document.getElementById("jeden_element").value;
-
-            function myFunction(xml) {
-                document.getElementById("wynik").innerHTML="";
-                var xmlDoc = xml.responseXML;
-                var album = xmlDoc.getElementsByTagName("album");
-                var albumLen = album.length;
-                for(var i = 0; i < albumLen; i++){
-                    document.getElementById("wynik").innerHTML+="<div style='width:15%; border:1px solid black'>"+xmlDoc.getElementsByTagName(co)[i].childNodes[0].nodeValue+"</div>";
-                }
-
-            }
         }
     </script>
 
