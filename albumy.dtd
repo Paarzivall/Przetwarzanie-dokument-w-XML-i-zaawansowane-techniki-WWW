@@ -1,0 +1,10 @@
+<!ELEMENT albumy (album+)>
+<!ELEMENT album (autor, tytul, okladka, cena, ilosc_utworow)>
+<!ATTLIST album type (metal|rock|rap) #REQUIRED>
+<!ELEMENT autor (#PCDATA)>
+<!ELEMENT tytul (#PCDATA)>
+<!ELEMENT okladka (#PCDATA)>
+<!ELEMENT cena (#PCDATA)>
+<!ELEMENT ilosc_utworow (#PCDATA)>
+<!ATTLIST tytul lang (pl|en) #REQUIRED>
+<!ATTLIST cena waluta CDATA #FIXED "zl">

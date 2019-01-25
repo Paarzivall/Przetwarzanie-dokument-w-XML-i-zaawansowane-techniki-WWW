@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-    <xsl:variable name="backRock">background-color:Bisque; width:40%; float:left; margin-left:5%; margin-top:2%; border:1px solid blue; border-radius:20px;</xsl:variable>
-    <xsl:variable name="backRap">background-color:lightgray; width:40%; float:left; margin-left:5%; margin-top:2%; border:1px solid blue; border-radius:20px;</xsl:variable>
-    <xsl:variable name="backMetal">background-color:Gainsboro; width:40%; float:left; margin-left:5%; margin-top:2%; border:1px solid blue; border-radius:20px;</xsl:variable>
+    <xsl:variable name="backRock">background-color:Bisque; width:45%; float:left; margin-left:3%; margin-top:2%; border:1px solid blue; border-radius:20px;</xsl:variable>
+    <xsl:variable name="backRap">background-color:lightgray; width:45%; float:left; margin-left:3%; margin-top:2%; border:1px solid blue; border-radius:20px;</xsl:variable>
+    <xsl:variable name="backMetal">background-color:Gainsboro; width:45%; float:left; margin-left:3%; margin-top:2%; border:1px solid blue; border-radius:20px;</xsl:variable>
     
     <xsl:template match="/">
     <html>
