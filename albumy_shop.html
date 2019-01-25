@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <button id="all" onClick="show_all()">Show all</button><br>
+    <span>Filtruj </span>
+    <button id="rock" onClick="show_rock()">Rock</button>
+    <button id="rap" onClick="show_rap()">Rap</button>
+    <button id="metal" onClick="show_metal()">Metal</button>
+    <br><br>
+
+    <input type="text" id="jeden_element" required>
+    <button id="show_one_element" onClick="show_one_element()">Pokaż element zformularza</button>
+    <p id="wynik"></p>
+
+    <script>
+        function show_all(){
+            document.getElementById("wynik").innerHTML="";
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                   var xmlDoc = this.responseXML;
+                    var album = xmlDoc.getElementsByTagName("album");
+                    var albumLen = album.length;
+                    for(var i = 0; i < albumLen; i++){
+                       document.getElementById("wynik").innerHTML+="<div style='width:30%; margin-bottom:1%; border:1px solid black'>Autor: "+xmlDoc.getElementsByTagName("autor")[i].childNodes[0].nodeValue+"<br>Tytuł: "+xmlDoc.getElementsByTagName("tytul")[i].childNodes[0].nodeValue+"<br>Okładka: "+xmlDoc.getElementsByTagName("okladka")[i].childNodes[0].nodeValue+"<br>Cena: "+xmlDoc.getElementsByTagName("cena")[i].childNodes[0].nodeValue+" "+xmlDoc.getElementsByTagName("cena")[i].getAttribute("waluta")+"<br>Ilość utworów: "+xmlDoc.getElementsByTagName("ilosc_utworow")[i].childNodes[0].nodeValue+"<div>";
+                    }
+                }
+            };
+            xhttp.open("GET", "albumy_shop.xml", true);
+            xhttp.send();
+        }
+        function show_rock(){
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200){
+                    myFunction(this);
+                }
+            };
+            xhttp.open("GET", "albumy_shop.xml", true);
+            xhttp.send();
+
+            
+
+            function myFunction(xml) {
+                document.getElementById("wynik").innerHTML="";
+                var xmlDoc = xml.responseXML;
+                var album = xmlDoc.getElementsByTagName("album");
+                var albumLen = album.length;
+                for(var i = 0; i < albumLen; i++){
+                    if(xmlDoc.getElementsByTagName("album")[i].getAttribute("type")=="rock"){
+                        document.getElementById("wynik").innerHTML+="<div style='width:30%; margin-bottom:1%; border:1px solid black'>Autor: "+xmlDoc.getElementsByTagName("autor")[i].childNodes[0].nodeValue+"<br>Tytuł: "+xmlDoc.getElementsByTagName("tytul")[i].childNodes[0].nodeValue+"<br>Okładka: "+xmlDoc.getElementsByTagName("okladka")[i].childNodes[0].nodeValue+"<br>Cena: "+xmlDoc.getElementsByTagName("cena")[i].childNodes[0].nodeValue+" "+xmlDoc.getElementsByTagName("cena")[i].getAttribute("waluta")+"<br>Ilość utworów: "+xmlDoc.getElementsByTagName("ilosc_utworow")[i].childNodes[0].nodeValue+"<div>";
+                    }
+                }
+
+            }
+        }
+
+        function show_rap(){
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200){
+                    myFunction(this);
+                }
+            };
+            xhttp.open("GET", "albumy_shop.xml", true);
+            xhttp.send();
+
+            
+
+            function myFunction(xml) {
+                document.getElementById("wynik").innerHTML="";
+                var xmlDoc = xml.responseXML;
+                var album = xmlDoc.getElementsByTagName("album");
+                var albumLen = album.length;
+                for(var i = 0; i < albumLen; i++){
+                    if(xmlDoc.getElementsByTagName("album")[i].getAttribute("type")=="rap"){
+                        document.getElementById("wynik").innerHTML+="<div style='width:30%; margin-bottom:1%; border:1px solid black'>Autor: "+xmlDoc.getElementsByTagName("autor")[i].childNodes[0].nodeValue+"<br>Tytuł: "+xmlDoc.getElementsByTagName("tytul")[i].childNodes[0].nodeValue+"<br>Okładka: "+xmlDoc.getElementsByTagName("okladka")[i].childNodes[0].nodeValue+"<br>Cena: "+xmlDoc.getElementsByTagName("cena")[i].childNodes[0].nodeValue+" "+xmlDoc.getElementsByTagName("cena")[i].getAttribute("waluta")+"<br>Ilość utworów: "+xmlDoc.getElementsByTagName("ilosc_utworow")[i].childNodes[0].nodeValue+"<div>";
+                    }
+                }
+
+            }
+        }
+
+        function show_metal(){
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200){
+                    myFunction(this);
+                }
+            };
+            xhttp.open("GET", "albumy_shop.xml", true);
+            xhttp.send();
+
+            
+
+            function myFunction(xml) {
+                document.getElementById("wynik").innerHTML="";
+                var xmlDoc = xml.responseXML;
+                var album = xmlDoc.getElementsByTagName("album");
+                var albumLen = album.length;
+                for(var i = 0; i < albumLen; i++){
+                    if(xmlDoc.getElementsByTagName("album")[i].getAttribute("type")=="metal"){
+                        document.getElementById("wynik").innerHTML+="<div style='width:30%; margin-bottom:1%; border:1px solid black'>Autor: "+xmlDoc.getElementsByTagName("autor")[i].childNodes[0].nodeValue+"<br>Tytuł: "+xmlDoc.getElementsByTagName("tytul")[i].childNodes[0].nodeValue+"<br>Okładka: "+xmlDoc.getElementsByTagName("okladka")[i].childNodes[0].nodeValue+"<br>Cena: "+xmlDoc.getElementsByTagName("cena")[i].childNodes[0].nodeValue+" "+xmlDoc.getElementsByTagName("cena")[i].getAttribute("waluta")+"<br>Ilość utworów: "+xmlDoc.getElementsByTagName("ilosc_utworow")[i].childNodes[0].nodeValue+"<div>";
+                    }
+                }
+
+            }
+        }
+
+        function show_one_element(){
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200){
+                    myFunction(this);
+                }
+            };
+            xhttp.open("GET", "albumy_shop.xml", true);
+            xhttp.send();
+
+            var co = document.getElementById("jeden_element").value;
+
+            function myFunction(xml) {
+                document.getElementById("wynik").innerHTML="";
+                var xmlDoc = xml.responseXML;
+                var album = xmlDoc.getElementsByTagName("album");
+                var albumLen = album.length;
+                for(var i = 0; i < albumLen; i++){
+                    document.getElementById("wynik").innerHTML+="<div style='width:15%; border:1px solid black'>"+xmlDoc.getElementsByTagName(co)[i].childNodes[0].nodeValue+"</div>";
+                }
+
+            }
+        }
+    </script>
+
+</html>
